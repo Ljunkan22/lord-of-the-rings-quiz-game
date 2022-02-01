@@ -21,7 +21,3 @@ function displayName(){
     let userName = document.getElementById("name").value;
     document.getElementById("fname").textContent = userName + " have";
 }
-
-function  runGame(){
-    
-}
