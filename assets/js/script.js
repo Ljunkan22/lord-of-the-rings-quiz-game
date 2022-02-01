@@ -30,6 +30,8 @@ let questions = [{
         ]
 }]
 
+var id = 0;
+
 // Wait for the DOM to finish loading before running the getName function
 
 document.addEventListener("DOMContentLoaded", getName())
@@ -41,7 +43,7 @@ function getName(){
     let start = document.getElementById("start-game");
     start.addEventListener("click", function(){
         displayName();
-        displayGame("0");
+        displayGame(id);
     })
 }
 
@@ -68,7 +70,7 @@ function displayName(){
 }
  */
 function displayGame(id){
-
+    
     //gets the question
     let quest = document.getElementById("question");
     quest.innerText = questions[id].q;
@@ -89,31 +91,33 @@ function displayGame(id){
     option3.value = questions[id].a[2].isCorrect;
     option4.value = questions[id].a[3].isCorrect;
 
-    option1.addEventListener("click", function(){
+    option1.addEventListener("click", function(id){
         userAnswer = option1;
         checkAnswer(userAnswer);
     })
 
-    option2.addEventListener("click", function(){
+    option2.addEventListener("click", function(id){
+        console.log(id);
         userAnswer = option2;
-        checkAnswer(userAnswer);
+        checkAnswer(userAnswer,id);
     })
 
-    option3.addEventListener("click", function(){
+    option3.addEventListener("click", function(id){
         userAnswer = option3;
         checkAnswer(userAnswer);
     })
 
-    option4.addEventListener("click", function(){
+    option4.addEventListener("click", function(id){
         userAnswer = option4;
         checkAnswer(userAnswer);
     })
 
 }
 
-function checkAnswer(userAnswer){
+function checkAnswer(userAnswer, id){
     if (userAnswer.value == "true"){
         alert("!Correct!");
+        console.log(id.value);
     }
 }
 
