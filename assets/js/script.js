@@ -1,6 +1,6 @@
 //qestions that will be asked
 
-let qestions = [{
+let questions = [{
     id: 0,
         q: "1+1=?",
         a: [{ text: "1", isCorrect: false },
@@ -13,7 +13,7 @@ let qestions = [{
     {
         id: 1,
         q: "2+2=?",
-        a: [{ text: "1", isCorrect: false, 
+        a: [{ text: "1", isCorrect: false }, 
             { text: "2", isCorrect: false },
             { text: "3", isCorrect: false },
             { text: "4", isCorrect: true }
@@ -41,7 +41,7 @@ function getName(){
     let start = document.getElementById("start-game");
     start.addEventListener("click", function(){
         displayName();
-        displaygame("0");
+        displayGame("0");
     })
 }
 
@@ -67,30 +67,53 @@ function displayName(){
     }
 }
  */
-function displaygame(id){
+function displayGame(id){
 
     //gets the question
     let quest = document.getElementById("question");
-    quest.innerText = qestions[id].q;
+    quest.innerText = questions[id].q;
+    let userAnswer = "";
 
     let option1 = document.getElementById("a");
     let option2 = document.getElementById("b");
     let option3 = document.getElementById("c");
     let option4 = document.getElementById("d");
 
-    option1.innerText = qestions[id].a[0].text;
-    option2.innerText = qestions[id].a[1].text;
-    option3.innerText = qestions[id].a[2].text;
-    option4.innerText = qestions[id].a[3].text;
+    option1.innerText = questions[id].a[0].text;
+    option2.innerText = questions[id].a[1].text;
+    option3.innerText = questions[id].a[2].text;
+    option4.innerText = questions[id].a[3].text;
 
-    option1.innerText = qestions[id].a[0].isCorrect;
-    option2.innerText = qestions[id].a[1].isCorrect;
-    option3.innerText = qestions[id].a[2].isCorrect;
-    option4.innerText = qestions[id].a[3].isCorrect;
+    option1.value = questions[id].a[0].isCorrect;
+    option2.value = questions[id].a[1].isCorrect;
+    option3.value = questions[id].a[2].isCorrect;
+    option4.value = questions[id].a[3].isCorrect;
 
+    option1.addEventListener("click", function(){
+        userAnswer = option1;
+        checkAnswer(userAnswer);
+    })
 
+    option2.addEventListener("click", function(){
+        userAnswer = option2;
+        checkAnswer(userAnswer);
+    })
 
-    pickAnswer(id)
+    option3.addEventListener("click", function(){
+        userAnswer = option3;
+        checkAnswer(userAnswer);
+    })
+
+    option4.addEventListener("click", function(){
+        userAnswer = option4;
+        checkAnswer(userAnswer);
+    })
+
 }
 
+function checkAnswer(userAnswer){
+    if (userAnswer.value == "true"){
+        alert("!Correct!");
+    }
+}
 
