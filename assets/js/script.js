@@ -23,15 +23,47 @@ let questions = [{
     {
         id: 2,
         q: "3+3=?",
-        a: [{ text: "6", isCorrect: false },
+        a: [{ text: "4", isCorrect: false },
             { text: "5", isCorrect: false },
             { text: "6", isCorrect: true },
             { text: "7", isCorrect: false }
         ]
-}]
+    
+    },
+    {
+        id: 3,
+        q: "4+4=?",
+        a: [{ text: "7", isCorrect: false },
+            { text: "8", isCorrect: true },
+            { text: "9", isCorrect: false },
+            { text: "10", isCorrect: false }
+        ]
+
+    },
+    {
+        id: 4,
+        q: "5+5=?",
+        a: [{ text: "8", isCorrect: false },
+            { text: "9", isCorrect: false },
+            { text: "10", isCorrect: true },
+            { text: "11", isCorrect: false }
+        ]
+        
+    },
+    {
+        id: 4,
+        q: "6+6=?",
+        a: [{ text: "9", isCorrect: false },
+            { text: "10", isCorrect: false },
+            { text: "11", isCorrect: false },
+            { text: "12", isCorrect: true }
+        ]
+        
+    },
+]
 
 let id = 0;
-
+let userAnswer = "";
 // Wait for the DOM to finish loading before running the getName function
 
 document.addEventListener("DOMContentLoaded", getName())
@@ -57,24 +89,13 @@ function displayName(){
 
 /**
  * Displays the question and answer options
- * function pickAnswer(id){
-    let buttons = document.getElementsByClassName("answer-button").innerText;
-
-    for (let button of buttons){
-        button.addEventListener("click", function(){
-            if (button) {
-                console.log(button)
-            }
-        })
-    }
-}
  */
-function displayGame(id){
+function displayGame(id, userAnswer){
     
     //gets the question
     let quest = document.getElementById("question");
     quest.innerText = questions[id].q;
-    let userAnswer = "";
+    
 
     let option1 = document.getElementById("a");
     let option2 = document.getElementById("b");
@@ -92,22 +113,22 @@ function displayGame(id){
     option4.value = questions[id].a[3].isCorrect;
 
     option1.addEventListener("click", () => {
-        userAnswer = option1;
+        userAnswer = option1.value;
         checkAnswer(userAnswer,id);
     })
 
     option2.addEventListener("click", () => {
-        userAnswer = option2;
+        userAnswer = option2.value;
         checkAnswer(userAnswer,id);
     })
 
     option3.addEventListener("click", () => {
-        userAnswer = option3;
+        userAnswer = option3.value;
         checkAnswer(userAnswer,id);
     })
 
     option4.addEventListener("click", () => {
-        userAnswer = option4;
+        userAnswer = option4.value;
         checkAnswer(userAnswer,id);
     })
 
@@ -117,15 +138,18 @@ function displayGame(id){
  * Checks if the Answer is correct of wrong
  */
 function checkAnswer(userAnswer, id){
-    if (userAnswer.value == "true"){
+    if (userAnswer === "true"){
+        console.log(userAnswer);
         alert("Correct!");
         incrementPoints();
         id++;
-        displayGame(id);
+        userAnswer = undefined;
+        delete(userAnswer);
+        displayGame(id,userAnswer);
     } else {
         alert("Wrong answer!");
         id++;
-        displayGame(id);
+        
     }
 }
 
