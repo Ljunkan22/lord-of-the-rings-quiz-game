@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Lotr Quiz</title>
+</head>
+<body>
+
+    <div id="max-width">
+
+    <img class="logo" src="assets/images/lord-of-the-rings.png" alt="logo">
+    <h1 class="heading">Lord of the Rings Quiz</h1>
+
+    <div class="enter-name">
+        <p>Enter name:</p>
+        <input id="name" type="text">
+        <button class="start-game" data-type="start">START</button>
+    </div>
+
+    <div class="question-area">
+        <p id="question">question here</p>
+    </div>
+
+    <div class="answer-area">
+        <button data-type="answerA" class="answer-button">A</button>
+        <button data-type="answerB" class="answer-button">B</button>
+        <button data-type="answerC" class="answer-button">C</button>
+        <button data-type="answerD" class="answer-button">D</button>
+    </div>
+
+    <div>
+        <p><span id="fname"></span></p>
+        <p><span id="points">0</span> POINTS</p>
+    </div>
+
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
