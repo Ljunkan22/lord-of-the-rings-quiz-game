@@ -30,7 +30,7 @@ let questions = [{
         ]
 }]
 
-var id = 0;
+let id = 0;
 
 // Wait for the DOM to finish loading before running the getName function
 
@@ -91,33 +91,47 @@ function displayGame(id){
     option3.value = questions[id].a[2].isCorrect;
     option4.value = questions[id].a[3].isCorrect;
 
-    option1.addEventListener("click", function(id){
+    option1.addEventListener("click", () => {
         userAnswer = option1;
-        checkAnswer(userAnswer);
+        checkAnswer(userAnswer,id);
     })
 
-    option2.addEventListener("click", function(id){
-        console.log(id);
+    option2.addEventListener("click", () => {
         userAnswer = option2;
         checkAnswer(userAnswer,id);
     })
 
-    option3.addEventListener("click", function(id){
+    option3.addEventListener("click", () => {
         userAnswer = option3;
-        checkAnswer(userAnswer);
+        checkAnswer(userAnswer,id);
     })
 
-    option4.addEventListener("click", function(id){
+    option4.addEventListener("click", () => {
         userAnswer = option4;
-        checkAnswer(userAnswer);
+        checkAnswer(userAnswer,id);
     })
 
 }
 
+/**
+ * Checks if the Answer is correct of wrong
+ */
 function checkAnswer(userAnswer, id){
     if (userAnswer.value == "true"){
-        alert("!Correct!");
-        console.log(id.value);
+        alert("Correct!");
+        incrementPoints();
+        id++;
+        displayGame(id);
+    } else {
+        alert("Wrong answer!");
+        id++;
+        displayGame(id);
     }
 }
 
+function incrementPoints(){
+
+    let oldPoints = parseInt(document.getElementById("points").innerText);
+    document.getElementById("points").innerText = 10 + oldPoints;
+
+}
