@@ -39,7 +39,7 @@ body{
     background-color: rgb(35, 36, 36);
 }
 
-.start-game {
+#start-game {
     background-color: rgb(52, 54, 54);
     color: #fff;
     height: 30px;
@@ -47,7 +47,7 @@ body{
     border-radius: 3px;
 }
 
-.start-game:hover{
+#start-game:hover{
     background-color: rgb(35, 36, 36);
 }
 
