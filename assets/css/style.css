@@ -70,6 +70,8 @@ body{
 .answer-button {
     background-color: rgb(52, 54, 54);
     border: none;
+    font-family: 'Quintessential', cursive;
+    font-size: 20px;
     width: 45%;
     min-height: 30px;
     border-radius: 3px;

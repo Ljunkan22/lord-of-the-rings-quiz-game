@@ -112,21 +112,21 @@ let questions = [{
     },
     {
         id: 5,
-        q: "",
+        q: "Who is this",
         a: [{
-                text: "",
+                text: "Elanor",
                 isCorrect: false
             },
             {
-                text: "",
+                text: "Arwen",
                 isCorrect: false
             },
             {
-                text: "",
+                text: "Eowyn",
                 isCorrect: false
             },
             {
-                text: "1",
+                text: "Galadriel",
                 isCorrect: true
             }
         ]
@@ -134,18 +134,18 @@ let questions = [{
     },
     {
         id: 6,
-        q: "What is the name of Aragone's sword?",
+        q: "What is the name of Aragon's sword?",
         a: [{
-                text: "Narsil",
-                isCorrect: false
+                text: "Anduril-Flame of the west",
+                isCorrect: true
             },
             {
                 text: "Glamdring-the foehamer",
                 isCorrect: false
             },
             {
-                text: "Anduril-Flame of the west",
-                isCorrect: true
+                text: "Narsil",
+                isCorrect: false
             },
             {
                 text: "Excalibur",
@@ -202,7 +202,7 @@ let questions = [{
         id: 9,
         q: "What does one not simply do?",
         a: [{
-                text: "Destroy the ring",
+                text: "Destroy the ring of power",
                 isCorrect: false
             },
             {
@@ -259,6 +259,21 @@ function displayGame(id) {
     //gets the question
     let quest = document.getElementById("question");
     quest.innerText = questions[id].q;
+
+    if (id == 5){
+        let image = document.createElement("img");
+        image.setAttribute("src", "assets/images/elve.jpg");
+        image.setAttribute("id", "elf");
+        image.setAttribute("height", "200px");
+        image.setAttribute("width", "200px");
+        image.setAttribute("alt", "elf");
+        image.style.borderRadius = "50%";
+        document.getElementById("q-area").appendChild(image);  
+    }
+    if (id == 6 ) {
+        del2 = document.getElementById("elf")
+        del2.style.display = "none";
+    }
 
 //gets the elements needed from the DOM
     let option1 = document.getElementById("a");
