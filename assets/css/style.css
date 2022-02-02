@@ -14,6 +14,7 @@ body{
     margin-right: auto;
 }
 
+
 .logo{
     height: 250px;
 }
@@ -78,4 +79,36 @@ body{
 
 .answer-button:hover {
     background-color: rgb(35, 36, 36);
+}
+
+.end-of-game {
+    background-color: rgba(35, 36, 36, 0.98);
+    text-align: center;
+    width: 900px;
+    height: 600px;
+    position: absolute;
+    margin-left: 3%;
+    margin-right: 6%;
+    top: 200px;
+    border-radius: 10px;
+    display: none;
+    left: auto;
+    right: auto;
+}
+
+.end-of-game p {
+    padding: 10%;
+}
+
+@media screen and (max-width: 1000px) {
+#max-width{
+    width: 100%;
+}
+.end-of-game{
+width: 90%;
+margin: auto;
+left: 8px;
+right: 8px;
+}
+
 }

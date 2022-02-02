@@ -218,7 +218,7 @@ function checkAnswer(userAnswer, id) {
         if (track_id < 6){
             displayGame(track_id, userAnswer);
         } else {
-            endGame();
+            endGameDisplay();
         }
         
     } else {
@@ -238,7 +238,11 @@ function incrementPoints() {
     document.getElementById("points").innerText = 10 + oldPoints;
 
 }
+/**
+ * 
+ */
+function endGameDisplay(){
 
-function endGame(){
+
 
 }
