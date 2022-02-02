@@ -2,21 +2,21 @@
 
 let questions = [{
         id: 0,
-        q: "1+1=?",
+        q: "Who wrote the Lord of the Rings books?",
         a: [{
-                text: "1",
-                isCorrect: false
-            },
-            {
-                text: "2",
+                text: "JRR Tolkien",
                 isCorrect: true
             },
             {
-                text: "3",
+                text: "RR Martin",
                 isCorrect: false
             },
             {
-                text: "4",
+                text: "JK Rowling",
+                isCorrect: false
+            },
+            {
+                text: "JR Moehringer",
                 isCorrect: false
             }
         ]
@@ -24,65 +24,65 @@ let questions = [{
     },
     {
         id: 1,
-        q: "2+2=?",
+        q: "What is the elvish word for friend?",
         a: [{
-                text: "1",
+                text: "Arda",
                 isCorrect: false
             },
             {
-                text: "2",
-                isCorrect: false
-            },
-            {
-                text: "3",
-                isCorrect: false
-            },
-            {
-                text: "4",
+                text: "Mellon",
                 isCorrect: true
+            },
+            {
+                text: "Mithrin",
+                isCorrect: false
+            },
+            {
+                text: "Formen",
+                isCorrect: false
             }
         ]
 
     },
     {
         id: 2,
-        q: "3+3=?",
+        q: "What was the name of the first white wizard?",
         a: [{
-                text: "4",
+                text: "Gandalf",
                 isCorrect: false
             },
             {
-                text: "5",
+                text: "Radagast",
                 isCorrect: false
             },
             {
-                text: "6",
+                text: "Melkor",
+                isCorrect: false
+            },
+            {
+                text: "Sauroman",
                 isCorrect: true
-            },
-            {
-                text: "7",
-                isCorrect: false
             }
         ]
 
     },
     {
         id: 3,
-        q: "4+4=?",
+        q: "How many rings of power are there in Middle earth?",
         a: [{
-                text: "7",
-                isCorrect: false
-            },
-            {
-                text: "8",
-                isCorrect: true
-            },
-            {
-                text: "9",
+                text: "1",
                 isCorrect: false
             },
             {
                 text: "10",
+                isCorrect: false
+            },
+            {
+                text: "20",
+                isCorrect: true
+            },
+            {
+                text: "17",
                 isCorrect: false
             }
         ]
@@ -90,21 +90,21 @@ let questions = [{
     },
     {
         id: 4,
-        q: "5+5=?",
+        q: "Who was the last king of Gondor? (before the events of the movies/Books)",
         a: [{
-                text: "8",
-                isCorrect: false
-            },
-            {
-                text: "9",
-                isCorrect: false
-            },
-            {
-                text: "10",
+                text: "Isildur",
                 isCorrect: true
             },
             {
-                text: "11",
+                text: "Sauron",
+                isCorrect: false
+            },
+            {
+                text: " Aragon",
+                isCorrect: false
+            },
+            {
+                text: "Arathorn",
                 isCorrect: false
             }
         ]
@@ -112,22 +112,110 @@ let questions = [{
     },
     {
         id: 5,
-        q: "6+6=?",
+        q: "",
         a: [{
-                text: "9",
+                text: "",
                 isCorrect: false
             },
             {
-                text: "10",
+                text: "",
                 isCorrect: false
             },
             {
-                text: "11",
+                text: "",
                 isCorrect: false
             },
             {
-                text: "12",
+                text: "1",
                 isCorrect: true
+            }
+        ]
+
+    },
+    {
+        id: 6,
+        q: "What is the name of Aragone's sword?",
+        a: [{
+                text: "Narsil",
+                isCorrect: false
+            },
+            {
+                text: "Glamdring-the foehamer",
+                isCorrect: false
+            },
+            {
+                text: "Anduril-Flame of the west",
+                isCorrect: true
+            },
+            {
+                text: "Excalibur",
+                isCorrect: false
+            }
+        ]
+
+    },
+    {
+        id: 7,
+        q: "Where are Sauroman's spy birds from?",
+        a: [{
+                text: "Shire",
+                isCorrect: false
+            },
+            {
+                text: "Angmar",
+                isCorrect: false
+            },
+            {
+                text: "Dunland",
+                isCorrect: true
+            },
+            {
+                text: "Mordor",
+                isCorrect: false
+            }
+        ]
+
+    },
+    {
+        id: 8,
+        q: "What year did Bilbo Baggins celebrate his 111 birthday  (by Shire-reckoning)",
+        a: [{
+                text: "3434",
+                isCorrect: false
+            },
+            {
+                text: "2022",
+                isCorrect: false
+            },
+            {
+                text: "1572",
+                isCorrect: false
+            },
+            {
+                text: "1400",
+                isCorrect: true
+            }
+        ]
+
+    },
+    {
+        id: 9,
+        q: "What does one not simply do?",
+        a: [{
+                text: "Destroy the ring",
+                isCorrect: false
+            },
+            {
+                text: "Walk into Mordor",
+                isCorrect: true
+            },
+            {
+                text: "Ride a dragon",
+                isCorrect: false
+            },
+            {
+                text: "Climb a mountain",
+                isCorrect: false
             }
         ]
 
@@ -195,7 +283,7 @@ function displayGame(id) {
 // Gets all the answer option and sends the clicked one to checkAnswer function
 const buttons = document.querySelectorAll('.answer-area button');
 buttons.forEach(button => button.addEventListener('click', event => {
-    if (track_id < 6){
+    if (track_id < 10){
     checkAnswer(event.target.value)
     }
 }));
@@ -215,7 +303,7 @@ function checkAnswer(userAnswer, id) {
 
 //calls displayGame function if track id is less then 6
 //Else calls the endGame Function
-        if (track_id < 6){
+        if (track_id < 10){
             displayGame(track_id, userAnswer);
         } else {
             endGameDisplay();
@@ -224,7 +312,11 @@ function checkAnswer(userAnswer, id) {
     } else {
         alert("Wrong answer!");
         track_id++;
-        displayGame(track_id, userAnswer);
+        if (track_id < 10){
+            displayGame(track_id, userAnswer);
+        } else {
+            endGameDisplay();
+        }
     }
     
 }
@@ -243,6 +335,21 @@ function incrementPoints() {
  */
 function endGameDisplay(){
 
+    let popup = document.getElementsByClassName("end-of-game");
+    popup[0].style.display = "block";
 
+    let gamePoints = parseInt(document.getElementById("points").innerHTML);
+    let message = document.getElementById("end-message");
+    console.log(gamePoints);
+    if (gamePoints > 70){
+        message.innerHTML = `You really know your stuff when it 
+        comes to Lord of the Rings great job!`;
+    } else if (gamePoints > 30){
+        message.innerHTML = `I think you need to read the books
+         or watch the movies one more time to brush up your knowledge a bit ;)`;
+    } else{
+        message.innerHTML = `Have you ever heard of Lord of the Rings before? 
+        (If not you should consider reading the books and watch the movies they are amazing!)`;
+    }
 
 }
