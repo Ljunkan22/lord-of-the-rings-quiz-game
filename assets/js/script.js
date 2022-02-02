@@ -134,8 +134,8 @@ let questions = [{
     },
 ]
 
-//global 
-let track_id = 0;
+//global values
+let track_id ;
 let userAnswer = "";
 
 // Wait for the DOM to finish loading before running the getName function
@@ -148,6 +148,7 @@ document.addEventListener("DOMContentLoaded", getName())
 function getName() {
     let start = document.getElementById("start-game");
     start.addEventListener("click", function () {
+        track_id = 0;
         displayName();
         displayGame(0);
     })
@@ -165,7 +166,7 @@ function displayName() {
 /**
  * Displays the question and answer options
  */
-function displayGame(id, track_id) {
+function displayGame(id) {
 
     //gets the question
     let quest = document.getElementById("question");
@@ -194,7 +195,9 @@ function displayGame(id, track_id) {
 // Gets all the answer option and sends the clicked one to checkAnswer function
 const buttons = document.querySelectorAll('.answer-area button');
 buttons.forEach(button => button.addEventListener('click', event => {
+    if (track_id < 6){
     checkAnswer(event.target.value)
+    }
 }));
 
 /**
@@ -227,11 +230,15 @@ function checkAnswer(userAnswer, id) {
 }
 
 /**
- * increment the point if answer was right 
+ * increment the point if answer was correct
  */
 function incrementPoints() {
 
     let oldPoints = parseInt(document.getElementById("points").innerText);
     document.getElementById("points").innerText = 10 + oldPoints;
+
+}
+
+function endGame(){
 
 }
