@@ -111,7 +111,7 @@ let questions = [{
 
     },
     {
-        id: 4,
+        id: 5,
         q: "6+6=?",
         a: [{
                 text: "9",
@@ -134,10 +134,11 @@ let questions = [{
     },
 ]
 
+//global 
 let track_id = 0;
 let userAnswer = "";
-// Wait for the DOM to finish loading before running the getName function
 
+// Wait for the DOM to finish loading before running the getName function
 document.addEventListener("DOMContentLoaded", getName())
 
 /**
@@ -164,7 +165,8 @@ function displayName() {
 /**
  * Displays the question and answer options
  */
-function displayGame(id) {
+function displayGame(id, track_id) {
+
     //gets the question
     let quest = document.getElementById("question");
     quest.innerText = questions[id].q;
@@ -206,7 +208,16 @@ function checkAnswer(userAnswer, id) {
         alert("Correct!");
         incrementPoints();
         track_id++;
-        displayGame(track_id, userAnswer);
+        console.log(track_id);
+
+//calls displayGame function if track id is less then 6
+//Else calls the endGame Function
+        if (track_id < 6){
+            displayGame(track_id, userAnswer);
+        } else {
+            endGame();
+        }
+        
     } else {
         alert("Wrong answer!");
         track_id++;
