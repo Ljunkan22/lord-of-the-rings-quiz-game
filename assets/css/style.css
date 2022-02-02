@@ -124,3 +124,12 @@ body{
 }
 
 }
+@media screen and (max-width: 680px) {
+  
+    .answer-area {
+        width: 100%;
+    }
+    .question-area {
+        width: 80%;
+    }
+}
